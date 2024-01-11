@@ -20,14 +20,14 @@
       "name": "paul",
       "surname": "guzman",
       "birthDate": "1993-08-19",
-      "position": 2,
+      "position": 1,
       "positionDescription": null,
       "id": 3
     },
     {
       "id": 4,
       "name": "renetchzel",
-      "surname": "wasington",
+      "surname": "washington",
       "birthDate": "1993-08-19",
       "position": 1
     },
@@ -64,7 +64,7 @@
       "id": 8
     },
     {
-      "name": "Juanillo",
+      "name": "Juan",
       "surname": "Hansem",
       "birthDate": "1993-01-04T23:00:00.000Z",
       "position": 0,
@@ -80,7 +80,7 @@
       "id": 10
     },
     {
-      "name": "rtert",
+      "name": "Hellen",
       "surname": "Normans",
       "birthDate": "2017-01-01T23:00:00.000Z",
       "position": 0,
@@ -110,38 +110,6 @@
       "position": 1,
       "positionDescription": null,
       "id": 14
-    },
-    {
-      "name": "werwer",
-      "surname": "werwerwe",
-      "birthDate": "2023-12-31T23:00:00.000Z",
-      "position": 2,
-      "positionDescription": "asdfasdfasdf",
-      "id": 15
-    },
-    {
-      "name": "dsfasdfasdf",
-      "surname": "adfasdfsd",
-      "birthDate": "2023-12-31T23:00:00.000Z",
-      "position": 0,
-      "positionDescription": null,
-      "id": 16
-    },
-    {
-      "name": "sdfasdfasdf",
-      "surname": "asdfasdfasd",
-      "birthDate": "2023-12-31T23:00:00.000Z",
-      "position": 1,
-      "positionDescription": null,
-      "id": 17
-    },
-    {
-      "name": "dfasdfasdf",
-      "surname": "adsfasdf",
-      "birthDate": "2023-12-31T23:00:00.000Z",
-      "position": 2,
-      "positionDescription": "sdfasdfasdf",
-      "id": 18
     }
   ]
 }
