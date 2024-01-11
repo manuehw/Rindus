@@ -12,7 +12,7 @@ NOTE:
 To mock the backend server this application uses the json-server library. Please don't forget to run the following command to simulate the server:
 
 - `npm install`
-- `json-server --watch server.json`
+- `npx json-server --watch server.json`
 
 ## Development server
 
