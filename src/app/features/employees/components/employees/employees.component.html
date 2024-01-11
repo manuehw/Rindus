@@ -1,0 +1,69 @@
+<section>
+  <div>
+    <input
+      class="input"
+      type="text"
+      placeholder="Search"
+      (input)="search($event)"
+    />
+    <button
+      class="green-button button-size"
+      [ngStyle]="{
+        display: role.userRole$.getValue() === 'admin' ? 'block' : 'none'
+      }"
+      (click)="openEmployeeDetails()"
+    >
+      Add
+    </button>
+  </div>
+
+  @if (!(spinnerService.isLoading$ | async)) {
+  <table
+    mat-table
+    [dataSource]="employees"
+    class="mat-elevation-z8 glass-table"
+  >
+    <ng-container matColumnDef="{{ tableColumns.Name }}">
+      <th mat-header-cell *matHeaderCellDef>{{ tableColumns.Name }}</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.name | titlecase }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="{{ tableColumns.Surname }}">
+      <th mat-header-cell *matHeaderCellDef>{{ tableColumns.Surname }}</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.surname | titlecase }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="{{ tableColumns.BirthDate }}">
+      <th mat-header-cell *matHeaderCellDef>Birth Date</th>
+      <td mat-cell *matCellDef="let element">
+        {{
+          role.userRole$.getValue() === "admin"
+            ? (element.birthDate | age)
+            : (element.birthDate | date : "mediumDate")
+        }}
+        years
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="{{ tableColumns.Position }}">
+      <th mat-header-cell *matHeaderCellDef>{{ tableColumns.Position }}</th>
+      <td mat-cell *matCellDef="let element">
+        {{ getPositionText(element.position) }}
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr
+      mat-row
+      *matRowDef="let row; columns: displayedColumns"
+      (click)="openEmployeeDetails(row)"
+    ></tr>
+  </table>
+  } @else {
+  <app-spinner-load></app-spinner-load>
+  }
+</section>

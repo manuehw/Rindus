@@ -1,0 +1,70 @@
+<section>
+  <h2>{{ data.title }}</h2>
+  @if (!(spinnerService.isLoading$ | async)) {
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div>
+      <mat-form-field color="primary">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" placeholder="Name" />
+        @if (nameFormControl.invalid) {
+        <mat-error>{{ getErrorMessage("name") }}</mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Surname</mat-label>
+        <input matInput formControlName="surname" placeholder="Surname" />
+        @if (surnameFormControl.invalid) {
+        <mat-error>{{ getErrorMessage("surname") }}</mat-error>
+        }
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Birth Date</mat-label>
+        <input
+          matInput
+          [matDatepicker]="picker"
+          formControlName="birthDate"
+          placeholder="Birth Date"
+        />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field>
+        <mat-label>Position</mat-label>
+        <mat-select
+          formControlName="position"
+          placeholder="Select the position"
+        >
+          @for (option of opcionesPosicion; track option.id) {
+          <mat-option [value]="option.id">{{ option.description }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+      @if (!isDisabledInput) {
+      <mat-form-field>
+        <mat-label>Position Description</mat-label>
+        <input
+          matInput
+          formControlName="positionDescription"
+          placeholder="Description"
+        />
+        @if (positionDescriptionFormControl.invalid) {
+        <mat-error>{{ getErrorMessage("description") }}</mat-error>
+        }
+      </mat-form-field>
+      }
+    </div>
+    @if (!data.disabled) {
+    <button class="green-button" type="submit" [disabled]="form.invalid">
+      Save
+    </button>
+    }
+  </form>
+  } @else {
+  <app-spinner-load></app-spinner-load>
+  }
+</section>

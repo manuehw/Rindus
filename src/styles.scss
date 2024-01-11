@@ -1,1 +1,82 @@
-/* You can add global styles to this file, and also import other style files */
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use "@angular/material" as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$rindus-app-primary: mat.define-palette(mat.$indigo-palette);
+$rindus-app-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$rindus-app-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$rindus-app-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $rindus-app-primary,
+      accent: $rindus-app-accent,
+      warn: $rindus-app-warn,
+    ),
+  )
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($rindus-app-theme);
+$mainColor: rgb(77, 214, 153);
+$backGroundMainColor: rgb(48, 49, 64);
+$greyTextColor: #718096;
+$borderColor: #efefef;
+$boxShadowLight: 0 0 5px rgba(255, 255, 255, 0.7);
+$boxShadowDark: 0 0 5px rgba(255, 255, 255, 0.3);
+$whiteColor: white;
+$backGroundTable: rgba(255, 255, 255, 0.25);
+
+body {
+  margin: 0;
+  background-color: $backGroundMainColor;
+}
+.input {
+  width: 50%;
+  background-color: transparent;
+  border: none;
+  color: $whiteColor;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: $boxShadowDark;
+  margin-right: 10px;
+  &:focus {
+    box-shadow: $boxShadowLight;
+    outline: none;
+  }
+}
+.green-button {
+  background-color: $mainColor;
+  color: $whiteColor;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.green-button:hover {
+  background-color: $whiteColor;
+  color: black;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

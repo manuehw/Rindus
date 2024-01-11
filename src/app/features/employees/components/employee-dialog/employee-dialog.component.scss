@@ -1,0 +1,32 @@
+@import "../../../../../styles.scss";
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem;
+  div {
+    display: flex;
+  }
+}
+
+h2 {
+  color: $greyTextColor;
+  font-size: medium;
+  padding: 0 0 0.25rem 2rem;
+  border-bottom: 1px solid $borderColor;
+}
+
+mat-form-field {
+  margin: 1rem;
+  height: 65px;
+  width: 25%;
+  background: transparent;
+}
+
+mat-error {
+  font-size: small;
+}
+button {
+  align-items: right;
+  width: 25%;
+}

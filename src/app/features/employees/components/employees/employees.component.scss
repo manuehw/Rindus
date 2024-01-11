@@ -1,0 +1,22 @@
+@import "../../../../../styles.scss";
+
+section {
+  background-color: $backGroundMainColor;
+  padding: 20px;
+  div {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 2rem;
+    width: 100%;
+  }
+}
+.glass-table {
+  background: $backGroundTable;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: $boxShadowLight;
+}
+
+tr:hover {
+  cursor: pointer;
+}
